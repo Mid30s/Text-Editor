@@ -17,6 +17,7 @@ module.exports = () => {
       filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
+
     plugins: [
       // Webpack plugin that generates our html file and injects our bundles.
       new HtmlWebpackPlugin({

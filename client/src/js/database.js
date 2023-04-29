@@ -18,10 +18,9 @@ export const putDb = async (content) => {
   const jateDb = await openDB("jate", 1);
   const tx = jateDb.transaction("jate", "readwrite");
   const store = tx.objectStore("jate");
-  const request = store.put({ content });
+  const request = store.put({ id: id, content: content });
   const result = await request;
-  console.error("putDb not implemented", result);
-  return result;
+  console.log("🚀 - Content saved in IndexedDB:", result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -32,8 +31,14 @@ export const getDb = async () => {
   const store = tx.objectStore("jate");
   const request = store.getAll();
   const result = await request;
-  console.error("getDb not implemented", result);
-  return result;
+  console.log("Content retrieved from IndexedDB:", result);
+
+  if (result && result.length > 0 && result[0].content) {
+    return result[0].content;
+  } else {
+    console.error("getDb not implemented", result);
+    return null;
+  }
 };
 
 initdb();
