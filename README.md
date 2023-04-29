@@ -58,6 +58,7 @@ Manifest.json:
 Registered service worker:
 ![J.A.T.E](client/src/images/registered-service-worker.png)
 
+IndexedDB:
 ![J.A.T.E](client/src/images/indexedDB.png)
 
 ## License
